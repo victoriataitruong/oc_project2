@@ -20,3 +20,10 @@ del golden_doodle_facts["origin"]
 # issue:  print row
 # what actually works:
 # print (row)
+
+#4 https://openclassrooms.com/en/courses/6902811-learn-python-basics/exercises/3990
+# issue: question 10 website isn't found
+
+#5 https://openclassrooms.com/en/courses/6900846-set-up-a-python-environment/6990020-create-your-first-virtual-environment#/id/r-6989912
+# issue: wrong command to activate windows
+# what actually works: .\env\Scripts\activate

@@ -1,0 +1,19 @@
+pip list: lists all of the packages you have installed (and their dependencies) in a human-readable format
+
+pip freeze: lists the packages you have installed (but not their dependencies) in a format suitable for storing in a file (often called a  requirements.txt  file) 
+
+pip show <package(s)>: which shows you useful information about one or more packages that you have installed
+
+pip uninstall <package>: uninstalls a specific package
+
+pip install requests==2.1.0: installs a specific package's version
+
+deactivate: deactivate virtual env
+
+python -m venv env: create a virtual env
+
+.\env\Scripts\activate: activate a virtual env
+
+pip freeze > requirements.txt: automatically creates requirement file 
+
+pip install -r requirements.txtL install all packages from requirements file automatically
