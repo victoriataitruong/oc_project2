@@ -16,4 +16,6 @@ python -m venv env: create a virtual env
 
 pip freeze > requirements.txt: automatically creates requirement file 
 
-pip install -r requirements.txtL install all packages from requirements file automatically
+pip install -r requirements.txt: install all packages from requirements file automatically
+
+rm -r env/: delete a virtual environment
