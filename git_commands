@@ -1,0 +1,67 @@
+git branch wwbranch: creating a new branch
+
+git status: check what branch you are working in
+
+git checkout wwbranch: to work in another branch
+
+git checkout -b wwbranch:  create a new branch, and move your working directory
+
+git add README.md: stage a file
+
+Ctrl + c then :wq: after commenting in git (to escape)
+
+git rm --cached <filename>: remove a staged file
+
+git revert HEAD --no-edit : take you back to the staged files before your commit
+( does not remove the accidental commit from revision history)
+
+git reset: unstage a file and undo a commit
+
+git reset --soft HEAD^: this command will take your files back to the staging area
+
+git commit --amend.: change the last commit message
+
+git reset HEAD~3:  removes the last three commits from your working directory.  It doesn't delete the commits completely; rather, it moves the HEAD to the commit that you want to be your latest (the 3 can be changed to any number)
+
+git reset --hard HEAD~3: Doing the reset, and removing the files from the staging area to start over
+
+git rm: removes staged files
+
+git revert: undoes a commit, but saves the correction as an additional commit over the mistake
+
+git push <repo name> + <hash>^:<branch>: will delete a specific commit that you may have put in a pull request, either on your forked copy, or pushed directly to GitHub.
+
+git reset --soft HEAD~1: moves back to the last commit, and your files are still staged
+
+git reset --soft: can uncommit and keep your files staged
+
+git reset --mixed: can uncommit and unstage your files
+
+git reset --hard: can delete all of your unstaged and staged files
+
+git log: a list of the commits that you've made in reverse chronological order
+
+git reflog: list of all of the activities on a working directory in your local repository
+
+git blame: get both the commits and the names of the users associated with them
+
+git cherry-pick: can add a commit from one branch to yours.
+
+git fetch: to get the changes from the remote repo.
+
+git merge: integrates changes from the remote repo.
+
+Git Pull: combination of  git fetch and  git merge in one command
+
+git rebase: combine branches
+
+git prune: remove orphaned branches
+
+interactive git rebase: squash commits and logically order your commits and branches, as well as give your commits descriptive names
+
+git bisect start: Debug repo
+
+-D switch: force branch deletion
+
+git remote prune origin --dry-run: list orphaned branches
+
