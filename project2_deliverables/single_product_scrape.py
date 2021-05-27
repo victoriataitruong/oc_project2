@@ -1,11 +1,9 @@
-# requests
+# import libs
 import requests
 import csv 
-
-# beautifulSoup
 from bs4 import BeautifulSoup
 
-# url to scrape
+# url to scrape from
 book_url = "http://books.toscrape.com/catalogue/walt-disneys-alice-in-wonderland_777/index.html"
 page = requests.get(book_url)
 
