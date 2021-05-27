@@ -6,11 +6,13 @@ additional_pages = True
 category_url = "http://books.toscrape.com/catalogue/category/books/default_15/index.html"
 
 category_url_additional_page_count = 1
-ending_urls = []
+book_urls = []
+
 while(additional_pages): 
     page = requests.get(category_url)
     soup = BeautifulSoup(page.content, 'html.parser')
-    ending_urls.append(soup.find_all(["h3"]))
+    soup_string = str(soup.find_all("h3"))
+    book_urls.append(soup_string)
     category_url_additional_page_count+= 1
     category_url_additional_page_count_str = str(category_url_additional_page_count)
     category_url = "http://books.toscrape.com/catalogue/category/books/default_15/page-" + category_url_additional_page_count_str + ".html"
@@ -18,4 +20,5 @@ while(additional_pages):
     if(r.status_code != 200):
         additional_pages = False
 
-print(*ending_urls, sep='\n')
+book_urls = [w.replace('../../../', 'http://books.toscrape.com/catalogue/') for w in book_urls]
+print (book_urls)
