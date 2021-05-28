@@ -1,5 +1,6 @@
 import requests
 import csv 
+import re
 from bs4 import BeautifulSoup
 
 additional_pages = True
@@ -21,4 +22,7 @@ while(additional_pages):
         additional_pages = False
 
 book_urls = [w.replace('../../../', 'http://books.toscrape.com/catalogue/') for w in book_urls]
-print (book_urls)
+
+new_book_urls = [re.findall(r'https?://[^\s<>"]+|www\.[^\s<>"]+', str(book_urls))]
+
+print (new_book_urls)

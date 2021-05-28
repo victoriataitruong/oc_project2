@@ -1,2 +1,2 @@
-str1 = "../../.."
-str2 = "http://books.toscrape.com/catalogue/"
+sent="Software Development = 1831"
+print (sent.split("="))
