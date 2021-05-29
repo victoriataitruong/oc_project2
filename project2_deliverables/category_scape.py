@@ -20,9 +20,14 @@ while(additional_pages):
     r = requests.get(category_url)
     if(r.status_code != 200):
         additional_pages = False
-
+# replacing shortcut url with full url
 book_urls = [w.replace('../../../', 'http://books.toscrape.com/catalogue/') for w in book_urls]
+# extracting urls 
+book_urls = [re.findall(r'https?://[^\s<>"]+|www\.[^\s<>"]+', str(book_urls))]
+# changing list to string
+str_book_lists = ','.join(book_urls[0])
+# a list of all urls from the category
+my_urls = str_book_lists.split(",")
 
-new_book_urls = [re.findall(r'https?://[^\s<>"]+|www\.[^\s<>"]+', str(book_urls))]
 
-print (new_book_urls)
+
