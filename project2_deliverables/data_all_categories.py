@@ -37,4 +37,29 @@ for i in new_book_categories:
     book_urls.append(soup_string)
 book_urls = [w.replace('../../../', 'http://books.toscrape.com/catalogue/') for w in book_urls]  
 book_urls = [re.findall(r'https?://[^\s<>"]+|www\.[^\s<>"]+', str(book_urls))]
-print(book_urls)
+# changing list to string
+str_book_lists = ','.join(book_urls[0])
+# a list of all urls from all book for all categories
+all_book_urls = str_book_lists.split(",")
+
+# open csv file and write headings
+f = csv.writer(open('all_books_data.csv', 'w', encoding="utf-8"))
+f.writerow(["url", 'universal_product_code', 'title', 'price_including_tax','price_excluding_tax', 'number_available', 'product_description', 'category', 'review_rating', 'image_url'])
+# looping through and getting book data for each book
+for j in all_book_urls:
+    # url to scrape from
+    book_url = j
+    page = requests.get(book_url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    url = j
+    universal_product_code = soup.tr
+    title = soup.title,
+    price_including_tax = soup.tr.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling,
+    price_excluding_tax = soup.tr.next_sibling.next_sibling.next_sibling.next_sibling,
+    number_available = soup.tr.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling,
+    product_description = soup.find('meta', attrs={'name': 'description'})
+    category = soup.li.next_sibling.next_sibling.next_sibling.next_sibling,
+    review_rating = soup.p.next_sibling.next_sibling.next_sibling.next_sibling,
+    image_url = soup.img
+    # write scaped data to csv file
+    f.writerow([url, universal_product_code, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url])
