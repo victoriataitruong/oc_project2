@@ -61,6 +61,7 @@ for h in new_book_categories:
     # a list of all urls from the category
     my_urls = str_book_lists.split(",")
     # scarping book data for each book
+    book_count = 1
     for x in my_urls:
         # url to scrape from
         book_url = x
@@ -80,12 +81,12 @@ for h in new_book_categories:
         image_url = soup.find('img')
         # write scaped data to csv file
         f.writerow([url, universal_product_code, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url])
-
         # saving all images
         image_url = image_url['src']
         image_url = image_url.replace('../..', 'http://books.toscrape.com/')
-        print (image_url)
         img = Image.open(requests.get(image_url, stream = True).raw)
-        img.save("images/image.png")
-        
+        img.save(f'{"images"}/{cat_name}_{book_count}.jpeg')
+        book_count+=1
+       
+
     
