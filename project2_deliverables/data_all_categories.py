@@ -3,6 +3,7 @@ import requests
 import csv 
 from bs4 import BeautifulSoup
 import re
+from PIL import Image
 # url to scrape from
 booktoscape_url = "http://books.toscrape.com/catalogue/category/books_1/index.html"
 page = requests.get(booktoscape_url)
@@ -35,7 +36,6 @@ for h in new_book_categories:
     # creating a csv file with cat name and adding headings
     f = csv.writer(open('csv_files/' + cat_name_str, 'w', encoding="utf-8"))
     f.writerow(["url", 'universal_product_code', 'title', 'price_including_tax','price_excluding_tax', 'number_available', 'product_description', 'category', 'review_rating', 'image_url'])   
-
     # grabbing the book urls 
     additional_pages = True
     category_url = h
@@ -77,6 +77,15 @@ for h in new_book_categories:
         product_description = soup.find('meta', attrs={'name': 'description'})
         category = soup.li.next_sibling.next_sibling.next_sibling.next_sibling,
         review_rating = soup.p.next_sibling.next_sibling.next_sibling.next_sibling,
-        image_url = soup.img
+        image_url = soup.find('img')
         # write scaped data to csv file
         f.writerow([url, universal_product_code, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url])
+
+        # saving all images
+        image_url = image_url['src']
+        image_url = image_url.replace('../..', 'http://books.toscrape.com/')
+        print (image_url)
+        img = Image.open(requests.get(image_url, stream = True).raw)
+        img.save("images/image.png")
+        
+    
