@@ -1,0 +1,37 @@
+url,universal_product_code,title,price_including_tax,price_excluding_tax,number_available,product_description,category,review_rating,image_url
+"('http://books.toscrape.com/catalogue/the-grownup_546/index.html',)","(<tr>
+<th>UPC</th><td>1bba4b1ba23ed2d6</td>
+</tr>,)","(<title>
+    The Grownup | Books to Scrape - Sandbox
+</title>,)","(<tr>
+<th>Price (incl. tax)</th><td>£35.88</td>
+</tr>,)","(<tr>
+<th>Price (excl. tax)</th><td>£35.88</td>
+</tr>,)","(<tr>
+<th>Availability</th>
+<td>In stock (8 available)</td>
+</tr>,)","<meta content=""
+    A canny young woman is struggling to survive by perpetrating various levels of mostly harmless fraud. On a rainy April morning, she is reading auras at Spiritual Palms when Susan Burke walks in. A keen observer of human behavior, our unnamed narrator immediately diagnoses beautiful, rich Susan as an unhappy woman eager to give her lovely life a drama injection. However, wh A canny young woman is struggling to survive by perpetrating various levels of mostly harmless fraud. On a rainy April morning, she is reading auras at Spiritual Palms when Susan Burke walks in. A keen observer of human behavior, our unnamed narrator immediately diagnoses beautiful, rich Susan as an unhappy woman eager to give her lovely life a drama injection. However, when the &quot;psychic&quot; visits the eerie Victorian home that has been the source of Susan's terror and grief, she realizes she may not have to pretend to believe in ghosts anymore. Miles, Susan's teenage stepson, doesn't help matters with his disturbing manner and grisly imagination. The three are soon locked in a chilling battle to discover where the evil truly lurks and what, if anything, can be done to escape it. ...more
+"" name=""description""/>","(<li>
+<a href=""../category/books/short-stories_45/index.html"">Short Stories</a>
+</li>,)","(<p class=""star-rating One"">
+<i class=""icon-star""></i>
+<i class=""icon-star""></i>
+<i class=""icon-star""></i>
+<i class=""icon-star""></i>
+<i class=""icon-star""></i>
+<!-- <small><a href=""/catalogue/the-grownup_546/reviews/"">
+        
+                
+                    0 customer reviews
+                
+        </a></small>
+         --> 
+
+
+<!-- 
+    <a id=""write_review"" href=""/catalogue/the-grownup_546/reviews/add/#addreview"" class=""btn btn-success btn-sm"">
+        Write a review
+    </a>
+
+ --></p>,)","<img alt=""The Grownup"" src=""../../media/cache/7e/cc/7ecc23cfaa84fb015a5333f2a5d97f23.jpg""/>"
