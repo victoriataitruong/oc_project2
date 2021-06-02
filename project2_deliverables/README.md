@@ -29,3 +29,5 @@ Next, please write a script that visits Books to Scrape, extracts all the book c
 4. image_file_scrape.py
 
 Finally, extend your existing work to download and save the image file for each product page that you visit!
+
+Add pull request fpr comments
