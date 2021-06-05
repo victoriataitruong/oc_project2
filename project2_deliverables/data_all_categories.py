@@ -82,16 +82,14 @@ for h in new_book_categories:
             metaprop = meta.get('property', '').lower()
             if 'description' == metaname or metaprop.find("description")>0:
                 product_description = meta['content'].strip()
-        print (product_description)
-
         category = soup.find('ul', class_='breadcrumb').find_all('li')[2].text.strip()
         review_rating = soup.find('div', class_='col-sm-6 product_main').find_all('p')[2]['class'][1]
         image_url = soup.find('img')
+        image_url = image_url['src']
+        image_url = image_url.replace('../..', 'http://books.toscrape.com/')
         # write scaped data to csv file
         f.writerow([url, universal_product_code, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url])
         # saving all images
-        image_url = image_url['src']
-        image_url = image_url.replace('../..', 'http://books.toscrape.com/')
         img = Image.open(requests.get(image_url, stream = True).raw)
         img.save(f'{"images"}/{cat_name}_{book_count}.jpeg')
         book_count+=1
