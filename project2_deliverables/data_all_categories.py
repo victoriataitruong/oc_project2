@@ -69,15 +69,23 @@ for h in new_book_categories:
         # turn HTML to BeautifulSoup object
         soup = BeautifulSoup(page.content, 'html.parser')
         # scape data 
-        url = book_url,
-        universal_product_code = soup.tr, 
-        title = soup.title,
-        price_including_tax = soup.tr.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling,
-        price_excluding_tax = soup.tr.next_sibling.next_sibling.next_sibling.next_sibling,
-        number_available = soup.tr.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling.next_sibling,
-        product_description = soup.find('meta', attrs={'name': 'description'})
-        category = soup.li.next_sibling.next_sibling.next_sibling.next_sibling,
-        review_rating = soup.p.next_sibling.next_sibling.next_sibling.next_sibling,
+        url = book_url
+        universal_product_code = soup.find('table', class_='table table-striped').find_all('td')[0].text
+        title = soup.find('h1').text
+        price_including_tax = soup.find('table', class_='table table-striped').find_all('td')[2].text
+        price_excluding_tax = soup.find('table', class_='table table-striped').find_all('td')[3].text
+        number_available = soup.find('table', class_='table table-striped').find_all('td')[5].text
+        
+        product_description = ""
+        for meta in soup.findAll("meta"):
+            metaname = meta.get('name', '').lower()
+            metaprop = meta.get('property', '').lower()
+            if 'description' == metaname or metaprop.find("description")>0:
+                product_description = meta['content'].strip()
+        print (product_description)
+
+        category = soup.find('ul', class_='breadcrumb').find_all('li')[2].text.strip()
+        review_rating = soup.find('div', class_='col-sm-6 product_main').find_all('p')[2]['class'][1]
         image_url = soup.find('img')
         # write scaped data to csv file
         f.writerow([url, universal_product_code, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url])
